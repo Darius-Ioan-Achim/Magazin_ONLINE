@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class cache extends Model
+{
+    protected $table = 'cache';
+    protected $primaryKey = 'key';
+    public $incrementing = false;
+    protected $keyType = 'string';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'key',
+        'value',
+        'expiration',
+    ];
+
+    protected $casts = [
+        'expiration' => 'integer',
+    ];
+}
