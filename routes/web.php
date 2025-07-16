@@ -3,18 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::middleware(['homepage.auth'])->group(function () {
 Route::get('/', function () {
     return Inertia::render('Welcome');
 })->name('home');
-});
+
+Route::get('/products', function () {
+    return Inertia::render('Products');
+})->name('products');
 
     Route::get('/homepage', function () {
-        return Inertia::render('HomePage', [
-            'breadcrumbs' => [
-                ['title' => 'HomePage', 'href' => '/homepage'],
-            ],
-        ]);
+        return Inertia::render('HomePage');
     })->name('homepage');
 
 // Route::get('/homepage', function () {
